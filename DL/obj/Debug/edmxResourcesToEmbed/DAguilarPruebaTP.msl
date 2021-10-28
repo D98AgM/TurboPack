@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DAguilarPruebaTPModelStoreContainer" CdmEntityContainer="DAguilarPruebaTPEntities">
+    <EntitySetMapping Name="Empleadoes">
+      <EntityTypeMapping TypeName="DAguilarPruebaTPModel.Empleado">
+        <MappingFragment StoreEntitySet="Empleado">
+          <ScalarProperty Name="RFC" ColumnName="RFC" />
+          <ScalarProperty Name="NumEmpleado" ColumnName="NumEmpleado" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="FechaControl" ColumnName="FechaControl" />
+          <ScalarProperty Name="Salario" ColumnName="Salario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="EmpleadoAdd" FunctionName="DAguilarPruebaTPModel.Store.EmpleadoAdd" />
+    <FunctionImportMapping FunctionImportName="EmpleadoDelete" FunctionName="DAguilarPruebaTPModel.Store.EmpleadoDelete" />
+    <FunctionImportMapping FunctionImportName="EmpleadoGetAll" FunctionName="DAguilarPruebaTPModel.Store.EmpleadoGetAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DAguilarPruebaTPModel.EmpleadoGetAll_Result">
+          <ScalarProperty Name="RFC" ColumnName="RFC" />
+          <ScalarProperty Name="NumEmpleado" ColumnName="NumEmpleado" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="FechaControl" ColumnName="FechaControl" />
+          <ScalarProperty Name="Salario" ColumnName="Salario" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="EmpleadoGetById" FunctionName="DAguilarPruebaTPModel.Store.EmpleadoGetById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DAguilarPruebaTPModel.EmpleadoGetById_Result">
+          <ScalarProperty Name="RFC" ColumnName="RFC" />
+          <ScalarProperty Name="NumEmpleado" ColumnName="NumEmpleado" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="FechaControl" ColumnName="FechaControl" />
+          <ScalarProperty Name="Salario" ColumnName="Salario" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="EmpleadoUpdate" FunctionName="DAguilarPruebaTPModel.Store.EmpleadoUpdate" />
+  </EntityContainerMapping>
+</Mapping>

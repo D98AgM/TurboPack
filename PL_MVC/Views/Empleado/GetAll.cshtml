@@ -1,0 +1,71 @@
+﻿@model ML.Empleado
+@{
+    ViewBag.Title = "GetAll";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Carga Masiva Empleado</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h5>Seleccione Tu archivo a Cargar </h5>
+                <hr />
+            </div>
+            @using (Html.BeginForm("CargaMasiva", "Empleado", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <input type="file" class="form-control" placeholder="Archivo" name="Archivo" />
+                <input type="submit" class="success" value="Cargar" />
+
+
+                <b>@ViewBag.mensaje</b>
+
+            }
+        </div>
+        
+  </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <h5>Seleccione un usuario para editar o + para agregar...</h5>
+            <hr />
+        </div>
+
+    </div>
+
+    <div style="float:right;">
+        @Html.ActionLink("+", "Form", "Empleado", htmlAttributes: new { @class = "btn btn-success" })
+    </div>
+
+    <table class="table table-bordered table-responsive">
+        <thead>
+            <tr>
+                <td>Editar</td>
+                <td>RFC</td>
+                <td>NumeroEmpleado</td>
+                <td>Nombre</td>
+                <td>Fecha Control</td>
+                <td>Salario</td>
+                <td>Eliminar</td>
+                 
+            </tr>
+        </thead>
+          <tbody>
+        @foreach ( ML.Empleado empleado in Model.Empleados)
+        {
+            <tr>
+                <td><a class="btn btn-warning glyphicon glyphicon-edit" href="@Url.Action("Form", "Empleado", new { UserName = empleado.RFC })"></a></td>
+                <td>@empleado.RFC</td>
+                <td>@empleado.NumEmpleado</td>
+
+                <td>@empleado.Nombre</td>
+                <td>@empleado.FechaControl</td>
+
+                <td>@empleado.Salario</td>
+                <td><a class="btn btn-danger glyphicon glyphicon-trash" href="@Url.Action("Delete", "Empleado", new { RFC= empleado.RFC})" onclick="return confirm('Estas seguro que deseas eliminar este registro?');"></a></td>
+            </tr>
+        }
+    </tbody>
+    </table>
+</div>
